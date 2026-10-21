@@ -1,17 +1,15 @@
-<html>
-
-   <head>
-
-      <title>
-          Example HTML
-      </title>
-
-   </head>
-
-   <body>
-      <h1>Example HTML </h1>
-      <p>This is an example file </p>
-   </body>
-
-</html 
-
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      deploy_target:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
